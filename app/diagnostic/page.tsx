@@ -22,7 +22,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـُ</span> (Damma)
+            <span className="font-arabic">ـُ</span>
           </>
         ),
         value: "damma",
@@ -30,7 +30,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـَ</span> (Fatha)
+            <span className="font-arabic">ـَ</span>
           </>
         ),
         value: "fatha",
@@ -38,7 +38,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـِ</span> (Kasra)
+            <span className="font-arabic">ـِ</span>
           </>
         ),
         value: "kasra",
@@ -48,8 +48,8 @@ const questions: {
     rationale: (
       <>
         Correct! The word <span className="font-arabic">أَهْلٌ</span> is the
-        subject (<GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>).
-        It is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm> (damma).
+        subject (<GlossaryTerm termKey="mubtada"><span className="font-arabic">مبتدأ</span></GlossaryTerm>).
+        It is <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm> (<span className="font-arabic">ـُ</span>).
       </>
     ),
   },
@@ -65,7 +65,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـٌ</span> (Dammatan)
+            <span className="font-arabic">ـٌ</span>
           </>
         ),
         value: "dammatan",
@@ -73,7 +73,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـً</span> (Fathatan)
+            <span className="font-arabic">ـً</span>
           </>
         ),
         value: "fathatan",
@@ -81,7 +81,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـٍ</span> (Kasratan)
+            <span className="font-arabic">ـٍ</span>
           </>
         ),
         value: "kasratan",
@@ -91,8 +91,8 @@ const questions: {
     rationale: (
       <>
         Correct! The word <span className="font-arabic">رَجُلاً</span> is the
-        object (<GlossaryTerm termKey="maful_bihi">maf'ūl bihi</GlossaryTerm>).
-        It is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> (fathatan).
+        object (<GlossaryTerm termKey="maful_bihi"><span className="font-arabic">مفعول به</span></GlossaryTerm>).
+        It is <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm> (<span className="font-arabic">ـً</span>).
       </>
     ),
   },
@@ -108,7 +108,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـُ</span> (Damma)
+            <span className="font-arabic">ـُ</span> 
           </>
         ),
         value: "damma",
@@ -116,7 +116,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـَ</span> (Fatha)
+            <span className="font-arabic">ـَ</span> 
           </>
         ),
         value: "fatha",
@@ -124,7 +124,7 @@ const questions: {
       {
         text: (
           <>
-            <span className="font-arabic">ـِ</span> (Kasra)
+            <span className="font-arabic">ـِ</span> 
           </>
         ),
         value: "kasra",
@@ -135,7 +135,7 @@ const questions: {
       <>
         Correct! The word <span className="font-arabic">الْبَيْتِ</span> comes after
         <span className="font-arabic"> فِي</span>. It is
-        <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm> (kasra).
+        <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm> (<span className="font-arabic">ـِ</span>).
       </>
     ),
   },
@@ -143,7 +143,7 @@ const questions: {
     question: (
       <>
         In the phrase <span className="font-arabic">الطالِبُ مجتهدٌ</span>, which word
-        is the <GlossaryTerm termKey="mubtada">مبتدأ (subject)</GlossaryTerm>?
+        is the <GlossaryTerm termKey="mubtada"><span className="font-arabic">مبتدأ</span></GlossaryTerm>?
       </>
     ),
     options: [
@@ -160,7 +160,7 @@ const questions: {
     rationale: (
       <>
         Correct. In a nominal sentence, the subject (
-        <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>) usually comes first.
+        <GlossaryTerm termKey="mubtada"><span className="font-arabic">مبتدأ</span></GlossaryTerm>) usually comes first.
       </>
     ),
   },
@@ -175,7 +175,7 @@ const questions: {
       {
         text: (
           <>
-            <GlossaryTerm termKey="marfu">مرفوع (marfūʿ)</GlossaryTerm>
+            <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>
           </>
         ),
         value: "marfu",
@@ -183,7 +183,7 @@ const questions: {
       {
         text: (
           <>
-            <GlossaryTerm termKey="mansub">منصوب (manṣūb)</GlossaryTerm>
+            <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm>
           </>
         ),
         value: "mansub",
@@ -191,7 +191,7 @@ const questions: {
       {
         text: (
           <>
-            <GlossaryTerm termKey="majrur">مجرور (majrūr)</GlossaryTerm>
+            <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm>
           </>
         ),
         value: "majrur",
@@ -201,7 +201,7 @@ const questions: {
     rationale: (
       <>
         Correct! <span className="font-arabic">'إنَّ'</span> makes the next noun
-        <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>.
+        <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm>.
       </>
     ),
   },

@@ -17,14 +17,15 @@ export default function PathHarfPage() {
     if (khabarCorrect && sahihCorrect) {
       setFeedback(
         <>
-          Correct. After <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>: <span className="font-arabic">الْخَبَرَ</span> (ـَ).
-          Predicate: <span className="font-arabic">صَحِيحٌ</span> (ـٌ).
+          <span className="font-arabic">صحيح.</span> بعد <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>: <span className="font-arabic">الْخَبَرَ</span> (<span className="font-arabic">ـَ</span>). وخبرها: <span className="font-arabic">صَحِيحٌ</span> (<span className="font-arabic">ـٌ</span>).
         </>
       );
     } else {
       setFeedback(
         <>
-          Tip: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>. Predicate is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+          <span className="font-arabic">تلميح:</span> <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> ← الاسم التالي 
+          <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm>. والخبر 
+          <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
         </>
       );
     }
@@ -33,8 +34,8 @@ export default function PathHarfPage() {
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
-        <h1 className="text-4xl font-bold">Path of Harf</h1>
-        <p className="text-lg">Particles and case</p>
+        <h1 className="text-4xl font-bold">Path of Particle</h1>
+        <p className="text-lg"><span className="font-arabic">الحروف والإعراب</span></p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
@@ -60,20 +61,20 @@ export default function PathHarfPage() {
 
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div>
-              <p className="font-semibold mb-2">Ending for <span className="font-arabic">الْخَبَر</span>:</p>
+              <p className="font-semibold mb-2">علامة آخر <span className="font-arabic">الْخَبَر</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setKhabarEnd("fatha")} className={`p-2 rounded ${khabarEnd === "fatha" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Fatha (ـَ)</button>
-                <button onClick={() => setKhabarEnd("damma")} className={`p-2 rounded ${khabarEnd === "damma" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Damma (ـُ)</button>
-                <button onClick={() => setKhabarEnd("kasra")} className={`p-2 rounded ${khabarEnd === "kasra" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Kasra (ـِ)</button>
+                <button onClick={() => setKhabarEnd("fatha")} className={`p-2 rounded ${khabarEnd === "fatha" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـَ</span></button>
+                <button onClick={() => setKhabarEnd("damma")} className={`p-2 rounded ${khabarEnd === "damma" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـُ</span></button>
+                <button onClick={() => setKhabarEnd("kasra")} className={`p-2 rounded ${khabarEnd === "kasra" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـِ</span></button>
               </div>
             </div>
 
             <div>
-              <p className="font-semibold mb-2">Ending for <span className="font-arabic">صَحِيح</span>:</p>
+              <p className="font-semibold mb-2">علامة آخر <span className="font-arabic">صَحِيح</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setSahihEnd("dammatan")} className={`p-2 rounded ${sahihEnd === "dammatan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Dammatan (ـٌ)</button>
-                <button onClick={() => setSahihEnd("fathatan")} className={`p-2 rounded ${sahihEnd === "fathatan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Fathatan (ـً)</button>
-                <button onClick={() => setSahihEnd("kasratan")} className={`p-2 rounded ${sahihEnd === "kasratan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Kasratan (ـٍ)</button>
+                <button onClick={() => setSahihEnd("dammatan")} className={`p-2 rounded ${sahihEnd === "dammatan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـٌ</span></button>
+                <button onClick={() => setSahihEnd("fathatan")} className={`p-2 rounded ${sahihEnd === "fathatan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـً</span></button>
+                <button onClick={() => setSahihEnd("kasratan")} className={`p-2 rounded ${sahihEnd === "kasratan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـٍ</span></button>
               </div>
             </div>
           </div>

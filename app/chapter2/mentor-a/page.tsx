@@ -30,11 +30,17 @@ export default function MentorAPage() {
 
       if (isSubjectCorrect && isPredicateCorrect) {
         setFeedback(
-          <>Correct. Subject: damma. Predicate: ends with <span className="font-arabic">ـُونَ</span>.</>
+          <>
+            <span className="font-arabic">صحيح.</span> <span className="font-arabic">المبتدأ</span> ← <span className="font-arabic">ـُ</span>. 
+            <span className="font-arabic">الخبر</span> ← <span className="font-arabic">ـُونَ</span> (<span className="font-arabic">مرفوع</span>).
+          </>
         );
       } else {
         setFeedback(
-          <>Try again. Both are <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.</>
+          <>
+            <span className="font-arabic">حاول مرة أخرى.</span> كلاهما 
+            <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
+          </>
         );
       }
     }
@@ -48,7 +54,7 @@ export default function MentorAPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor A: The Nominal Way</h1>
         <p className="text-lg">
-          We practice the nominal sentence (<GlossaryTerm termKey="jumla_ismiyyah">jumla ismiyyah</GlossaryTerm>). Choose the correct endings.
+          أمّ اللغة تبتسم: لنتدرّب على <GlossaryTerm termKey="jumla_ismiyyah"><span className="font-arabic">جملة اسمية</span></GlossaryTerm>. اختر العلامات الصحيحة.
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
@@ -65,8 +71,8 @@ export default function MentorAPage() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                Subject <span className="font-arabic">الْقَوْمُ</span> → damma (ـُ). Predicate <span className="font-arabic">صالِحُونَ</span> →
-                sound masculine plural nominative (ـُونَ).
+                <span className="font-arabic">المبتدأ</span> <span className="font-arabic">الْقَوْمُ</span> ← ضمّة (ـُ). 
+                <span className="font-arabic">الخبر</span> <span className="font-arabic">صالِحُونَ</span> ← جمع مذكّر سالم <span className="font-arabic">مرفوع</span> (ـُونَ).
               </div>
             )}
           </div>
@@ -75,15 +81,15 @@ export default function MentorAPage() {
             <div>
               <p className="font-semibold font-arabic">الْقَوْمُ</p>
               <div className="flex flex-col gap-2 mt-2">
-                <button onClick={() => handleSubjectSelection("damma")} className={`p-2 rounded ${subjectEnding === 'damma' ? (isSubjectCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}>Damma (ـُ)</button>
-                <button onClick={() => handleSubjectSelection("fatha")} className={`p-2 rounded ${subjectEnding === 'fatha' ? (isSubjectCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}>Fatha (ـَ)</button>
+                <button onClick={() => handleSubjectSelection("damma")} className={`p-2 rounded ${subjectEnding === 'damma' ? (isSubjectCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}><span className="font-arabic">ـُ</span></button>
+                <button onClick={() => handleSubjectSelection("fatha")} className={`p-2 rounded ${subjectEnding === 'fatha' ? (isSubjectCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}><span className="font-arabic">ـَ</span></button>
               </div>
             </div>
             <div>
               <p className="font-semibold font-arabic">صالِحُونَ</p>
               <div className="flex flex-col gap-2 mt-2">
-                <button onClick={() => handlePredicateSelection("una")} className={`p-2 rounded ${predicateEnding === 'una' ? (isPredicateCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}>Ending with ـُونَ</button>
-                <button onClick={() => handlePredicateSelection("ina")} className={`p-2 rounded ${predicateEnding === 'ina' ? (isPredicateCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}>Ending with ـِينَ</button>
+                <button onClick={() => handlePredicateSelection("una")} className={`p-2 rounded ${predicateEnding === 'una' ? (isPredicateCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}><span className="font-arabic">ـُونَ</span></button>
+                <button onClick={() => handlePredicateSelection("ina")} className={`p-2 rounded ${predicateEnding === 'ina' ? (isPredicateCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-gray-300 dark:bg-gray-700'}`}><span className="font-arabic">ـِينَ</span></button>
               </div>
             </div>
           </div>

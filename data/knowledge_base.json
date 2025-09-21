@@ -1,77 +1,77 @@
 {
   "mubtada": {
-    "term": "مبتدأ (Mubtada')",
-    "definition": "The subject of a nominal sentence (جملة اسمية). It is the starting point of the sentence and is typically in the nominative case (marfūʿ).",
-    "example": "In 'الطالِبُ مجتهدٌ', the word 'الطالِبُ' is the mubtada'."
+    "term": "مبتدأ",
+    "definition": "The subject of a nominal sentence (جملة اسمية). It is the starting point of the sentence and is typically in the nominative case (مرفوع).",
+    "example": "In 'الطالِبُ مجتهدٌ', the word 'الطالِبُ' is the مبتدأ."
   },
   "khabar": {
-    "term": "خبر (Khabar)",
-    "definition": "The predicate of a nominal sentence (جملة اسمية). It provides information about the subject (mubtada') and is also typically in the nominative case (marfūʿ).",
-    "example": "In 'الطالِبُ مجتهدٌ', the word 'مجتهدٌ' is the khabar."
+    "term": "خبر",
+    "definition": "The predicate of a nominal sentence (جملة اسمية). It provides information about the subject (مبتدأ) and is also typically in the nominative case (مرفوع).",
+    "example": "In 'الطالِبُ مجتهدٌ', the word 'مجتهدٌ' is the خبر."
   },
   "marfu": {
-    "term": "مرفوع (Marfūʿ)",
-    "definition": "The nominative case. This case is used for the subject of a sentence (both nominal and verbal) and the predicate of a nominal sentence. The default sign for this case is the damma (ـُ) or dammatan (ـٌ).",
-    "example": "A subject (mubtada') is always marfūʿ."
+    "term": "مرفوع",
+    "definition": "The nominative case. Used for the subject and the predicate of a nominal sentence. Default signs: ضمّة (ـُ) or تنوين الضمّ (ـٌ).",
+    "example": "المبتدأ يكون مرفوعًا."
   },
   "mansub": {
-    "term": "منصوب (Manṣūb)",
-    "definition": "The accusative case. This case is primarily used for the direct object of a verb (maf'ūl bihi). Certain particles, like 'إنَّ', also cause the following noun to be in this case. The default sign is the fatha (ـَ) or fathatan (ـً).",
-    "example": "The direct object of a verb (maf'ūl bihi) is manṣūb."
+    "term": "منصوب",
+    "definition": "The accusative case. Used primarily for the direct object (مفعول به). Particles like 'إنَّ' put the following noun in this case. Default signs: فتحة (ـَ) or تنوين الفتح (ـً).",
+    "example": "المفعول به يكون منصوبًا."
   },
   "majrur": {
-    "term": "مجرور (Majrūr)",
-    "definition": "The genitive case. This case is used for a noun that is the object of a preposition (e.g., 'فِي', 'لِـ', 'مِنْ') or the second term in a possessive construction (iḍāfa). The default sign is the kasra (ـِ) or kasratan (ـٍ).",
-    "example": "A noun after a preposition like 'فِي' (in) becomes majrūr."
+    "term": "مجرور",
+    "definition": "The genitive case. Used for a noun after a preposition (مثل: فِي، لِـ، مِنْ) أو المضاف إليه في إضافة. العلامة: كسرة (ـِ) أو تنوين الكسر (ـٍ).",
+    "example": "الاسم بعد حرف الجرّ (مثل: فِي) يكون مجرورًا."
   },
   "maful_bihi": {
-    "term": "مفعول به (Maf'ūl bihi)",
-    "definition": "The direct object of a verb. It is the thing upon which the action of the verb is done. It is always in the accusative case (manṣūb).",
-    "example": "In 'رَأَيْتُ رَجُلاً' (I saw a man), 'رَجُلاً' is the maf'ūl bihi."
+    "term": "مفعول به",
+    "definition": "The direct object of a verb. It is always in the accusative case (منصوب).",
+    "example": "In 'رَأَيْتُ رَجُلاً', 'رَجُلاً' هو المفعول به."
   },
   "fiil": {
-    "term": "فعل (Fi‘l)",
+    "term": "فعل",
     "definition": "A verb. In a verbal sentence (جملة فعلية), the verb typically comes first and assigns case to what follows.",
-    "example": "In 'كَتَبَ الطَّالِبُ الدَّرْسَ', 'كَتَبَ' is the verb (fi‘l)."
+    "example": "In 'كَتَبَ الطَّالِبُ الدَّرْسَ', 'كَتَبَ' هو فعل."
   },
   "faail": {
-    "term": "فاعل (Fā‘il)",
-    "definition": "The doer/subject of the verb in a verbal sentence. It is typically marfūʿ (nominative).",
-    "example": "In 'كَتَبَ الطَّالِبُ الدَّرْسَ', 'الطَّالِبُ' is the fā‘il (subject)."
+    "term": "فاعل",
+    "definition": "The doer/subject of the verb in a verbal sentence. It is typically مرفوع.",
+    "example": "In 'كَتَبَ الطَّالِبُ الدَّرْسَ', 'الطَّالِبُ' هو الفاعل."
   },
   "huruf_al_jarr": {
-    "term": "حروف الجرّ (Ḥurūf al-Jarr)",
-    "definition": "Prepositions that cause the following noun to become majrūr (genitive). Examples: فِي، لِـ، مِنْ.",
-    "example": "In 'فِي الْبَيْتِ', 'فِي' is a preposition and 'الْبَيْتِ' becomes majrūr."
+    "term": "حروف الجرّ",
+    "definition": "Prepositions that cause the following noun to be مجرور. Examples: فِي، لِـ، مِنْ.",
+    "example": "In 'فِي الْبَيْتِ', 'فِي' حرف جرّ و'الْبَيْتِ' مجرور."
   },
   "inna": {
-    "term": "إنَّ (Inna)",
-    "definition": "A particle that makes the following noun manṣūb (accusative) and the predicate marfūʿ.",
-    "example": "In 'إِنَّ اللَّهَ غَفُورٌ', 'اللَّهَ' is manṣūb because of إنّ."
+    "term": "إنَّ",
+    "definition": "A particle that makes the following noun منصوب and the predicate مرفوع.",
+    "example": "In 'إِنَّ اللَّهَ غَفُورٌ', 'اللَّهَ' منصوب بسبب إنَّ."
   },
   "jumla_ismiyyah": {
-    "term": "جملة اسمية (Nominal Sentence)",
-    "definition": "A sentence that begins with a noun. The mubtada‘ (subject) and khabar (predicate) are typically marfūʿ.",
-    "example": "'الطالِبُ مُجْتَهِدٌ' is a nominal sentence."
+    "term": "جملة اسمية",
+    "definition": "A sentence that begins with a noun. The مبتدأ and خبر are typically مرفوع.",
+    "example": "'الطالِبُ مُجْتَهِدٌ' جملة اسمية."
   },
   "jumla_fiiliyya": {
-    "term": "جملة فعلية (Verbal Sentence)",
-    "definition": "A sentence that begins with a verb. The subject (fā‘il) is marfū‘ and the object (maf‘ūl bihi) is manṣūb.",
-    "example": "'كَتَبَ الطَّالِبُ الدَّرْسَ' is a verbal sentence."
+    "term": "جملة فعلية",
+    "definition": "A sentence that begins with a verb. The فاعل is مرفوع and the مفعول به is منصوب.",
+    "example": "'كَتَبَ الطَّالِبُ الدَّرْسَ' جملة فعلية."
   },
   "marifah": {
-    "term": "معرفة (Ma‘rifah)",
-    "definition": "Definiteness. A definite noun, e.g., with the definite article 'ال', proper names, or by iḍāfa to a definite noun.",
-    "example": "'الطَّالِبُ' is definite due to 'ال'."
+    "term": "معرفة",
+    "definition": "Definiteness. A definite noun, e.g., with 'ال', proper names, or by إضافة to a definite noun.",
+    "example": "'الطَّالِبُ' معرفة بسبب 'ال'."
   },
   "nakira": {
-    "term": "نكرة (Nakirah)",
-    "definition": "Indefiniteness. An indefinite noun, often marked by tanwīn and lacking 'ال'.",
-    "example": "'كِتَابٌ' is indefinite (nakirah)."
+    "term": "نكرة",
+    "definition": "Indefiniteness. An indefinite noun, often marked by تنوين and lacking 'ال'.",
+    "example": "'كِتَابٌ' نكرة."
   },
   "idafa": {
-    "term": "إضافة (Iḍāfa)",
-    "definition": "A construct phrase (genitive construction) linking two nouns; the second is majrūr. If the second is definite, the whole phrase becomes definite.",
-    "example": "'بَيْتُ الطَّالِبِ' is an iḍāfa; the phrase is definite because 'الطَّالِبِ' is definite."
+    "term": "إضافة",
+    "definition": "A construct phrase linking two nouns; the second (المضاف إليه) is مجرور. If the second is definite, the whole phrase becomes definite.",
+    "example": "'بَيْتُ الطَّالِبِ' إضافة، والعبارة معرفة لأن 'الطَّالِبِ' معرفة."
   }
 }

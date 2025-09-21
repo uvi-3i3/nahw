@@ -31,30 +31,30 @@ export default function Chapter1Page() {
       if (isSubjectCorrect && isPredicateCorrect) {
         setFeedback(
           <>
-            Correct. Both are <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+            Correct. Both are <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
           </>
         );
       } else if (isSubjectCorrect) {
         setFeedback(
           <>
             Subject is correct. The predicate should be{" "}
-            <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+            <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
           </>
         );
       } else if (isPredicateCorrect) {
         setFeedback(
           <>
             Predicate is correct. The subject should be{" "}
-            <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+            <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
           </>
         );
       } else {
         setFeedback(
           <>
             Not correct. Both the{" "}
-            <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm> and{" "}
-            <GlossaryTerm termKey="khabar">khabar</GlossaryTerm> should be{" "}
-            <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+            <GlossaryTerm termKey="mubtada"><span className="font-arabic">مبتدأ</span></GlossaryTerm> and{" "}
+            <GlossaryTerm termKey="khabar"><span className="font-arabic">خبر</span></GlossaryTerm> should be{" "}
+            <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
           </>
         );
       }
@@ -77,7 +77,7 @@ export default function Chapter1Page() {
           <GlossaryTerm termKey="khabar">
             <span className="font-arabic">خبر</span>
           </GlossaryTerm>
-          ). Both are usually <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+          ). Both are usually <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
         </div>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
@@ -92,8 +92,8 @@ export default function Chapter1Page() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                Subject (<GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>) uses damma (ـُ). Predicate
-                (<GlossaryTerm termKey="khabar">khabar</GlossaryTerm>) uses dammatan (ـٌ).
+                Subject (<GlossaryTerm termKey="mubtada"><span className="font-arabic">مبتدأ</span></GlossaryTerm>) uses damma (ـُ). Predicate
+                (<GlossaryTerm termKey="khabar"><span className="font-arabic">خبر</span></GlossaryTerm>) uses dammatan (ـٌ).
               </div>
             )}
           </div>

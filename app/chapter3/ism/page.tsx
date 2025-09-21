@@ -17,17 +17,17 @@ export default function PathIsmPage() {
     if (idafaCorrect && definiteCorrect) {
       setFeedback(
         <>
-          Correct. This is <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>.
-          Second word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>.
-          Because it is <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the whole phrase is definite.
+          Correct. This is <GlossaryTerm termKey="idafa"><span className="font-arabic">إضافة</span></GlossaryTerm>.
+          Second word is <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm>.
+          Because it is <GlossaryTerm termKey="marifah"><span className="font-arabic">معرفة</span></GlossaryTerm>, the whole phrase is definite.
         </>
       );
     } else {
       setFeedback(
         <>
-          Tip: In <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>, the second word is
-          <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>. If the second is
-          <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the phrase is definite.
+          Tip: In <GlossaryTerm termKey="idafa"><span className="font-arabic">إضافة</span></GlossaryTerm>, the second word is
+          <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm>. If the second is
+          <GlossaryTerm termKey="marifah"><span className="font-arabic">معرفة</span></GlossaryTerm>, the phrase is definite.
         </>
       );
     }
@@ -36,8 +36,8 @@ export default function PathIsmPage() {
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
-        <h1 className="text-4xl font-bold">Path of Ism</h1>
-        <p className="text-lg">Definiteness and iḍāfa</p>
+        <h1 className="text-4xl font-bold">Path of Noun</h1>
+        <p className="text-lg"><span className="font-arabic">المعرفة والإضافة</span></p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
@@ -50,9 +50,9 @@ export default function PathIsmPage() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                In <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>, the second word is
-                <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>. If the second is
-                <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the whole phrase is definite.
+                In <GlossaryTerm termKey="idafa"><span className="font-arabic">إضافة</span></GlossaryTerm>, the second word is
+                <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm>. If the second is
+                <GlossaryTerm termKey="marifah"><span className="font-arabic">معرفة</span></GlossaryTerm>, the whole phrase is definite.
               </div>
             )}
           </div>
@@ -62,7 +62,7 @@ export default function PathIsmPage() {
 
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div>
-              <p className="font-semibold mb-2">Is this an <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>?</p>
+              <p className="font-semibold mb-2">Is this an <GlossaryTerm termKey="idafa"><span className="font-arabic">إضافة</span></GlossaryTerm>?</p>
               <div className="flex flex-col gap-2">
                 <button onClick={() => setIsIdafa("yes")} className={`p-2 rounded ${isIdafa === "yes" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Yes</button>
                 <button onClick={() => setIsIdafa("no")} className={`p-2 rounded ${isIdafa === "no" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>No</button>
@@ -70,7 +70,7 @@ export default function PathIsmPage() {
             </div>
 
             <div>
-              <p className="font-semibold mb-2">Is the whole phrase <GlossaryTerm termKey="marifah">definite</GlossaryTerm>?</p>
+              <p className="font-semibold mb-2">Is the whole phrase <GlossaryTerm termKey="marifah"><span className="font-arabic">معرفة</span></GlossaryTerm>?</p>
               <div className="flex flex-col gap-2">
                 <button onClick={() => setIsDefinite("yes")} className={`p-2 rounded ${isDefinite === "yes" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Yes</button>
                 <button onClick={() => setIsDefinite("no")} className={`p-2 rounded ${isDefinite === "no" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>No</button>

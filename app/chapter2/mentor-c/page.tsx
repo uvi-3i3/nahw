@@ -17,15 +17,17 @@ export default function MentorCPage() {
     if (isAllahCorrect && isSabirinCorrect) {
       setFeedback(
         <>
-          Correct. After <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>: <span className="font-arabic">اللَّهَ</span> (fatha).
-          After <span className="font-arabic">مَعَ</span>: <span className="font-arabic">الصَّابِرِينَ</span> (ـِينَ).
+          صحيح. بعد <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>: <span className="font-arabic">اللَّهَ</span> (<span className="font-arabic">ـَ</span>).
+          وبعد <span className="font-arabic">مَعَ</span>: <span className="font-arabic">الصَّابِرِينَ</span> (<span className="font-arabic">ـِينَ</span>).
         </>
       );
     } else {
       setFeedback(
         <>
-          Tip: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>.
-          <span className="font-arabic">مَعَ</span> → next word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>.
+          تلميح: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> ← الاسم التالي 
+          <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm>.
+          <span className="font-arabic">مَعَ</span> ← الكلمة التالية 
+          <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm>.
         </>
       );
     }
@@ -36,13 +38,12 @@ export default function MentorCPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor C: Cases in the Quran</h1>
         <p className="text-lg">
-          Choose the correct endings. <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> makes the next noun manṣūb.
-          <span className="font-arabic"> مَعَ</span> makes the next word majrūr.
+          اختر النهايات الصحيحة. <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> تنصب الاسم، و<span className="font-arabic">مَعَ</span> تجرّ ما بعدها.
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
-          <p className="text-lg mb-2">Choose the correct endings:</p>
+          <p className="text-lg mb-2"><span className="font-arabic">اختر النهايات الصحيحة:</span></p>
           <div className="mb-2">
             <button
               onClick={() => setShowHint((v) => !v)}
@@ -52,8 +53,11 @@ export default function MentorCPage() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> (ـَ/ـً). 
-                <span className="font-arabic">مَعَ</span> → next word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>. Sound masc. plural gen./acc. → <span className="font-arabic">ـِينَ</span>.
+                <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> ← الاسم التالي 
+                <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm> (<span className="font-arabic">ـَ/ـً</span>). 
+                <span className="font-arabic">مَعَ</span> ← الكلمة التالية 
+                <GlossaryTerm termKey="majrur"><span className="font-arabic">مجرور</span></GlossaryTerm>. 
+                جمع مذكّر سالم في الجر/النصب: <span className="font-arabic">ـِينَ</span>.
               </div>
             )}
           </div>
@@ -66,16 +70,16 @@ export default function MentorCPage() {
 
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div>
-              <p className="font-semibold mb-2">Select ending for <span className="font-arabic">اللّٰه</span>:</p>
+              <p className="font-semibold mb-2">اختر علامة آخر <span className="font-arabic">اللّٰه</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setAllah("damma")} className={`p-2 rounded ${allah === "damma" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Damma (ـُ)</button>
-                <button onClick={() => setAllah("fatha")} className={`p-2 rounded ${allah === "fatha" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Fatha (ـَ)</button>
-                <button onClick={() => setAllah("kasra")} className={`p-2 rounded ${allah === "kasra" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Kasra (ـِ)</button>
+                <button onClick={() => setAllah("damma")} className={`p-2 rounded ${allah === "damma" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـُ</span></button>
+                <button onClick={() => setAllah("fatha")} className={`p-2 rounded ${allah === "fatha" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـَ</span></button>
+                <button onClick={() => setAllah("kasra")} className={`p-2 rounded ${allah === "kasra" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـِ</span></button>
               </div>
             </div>
 
             <div>
-              <p className="font-semibold mb-2">Select ending for <span className="font-arabic">الصَّابِر</span>:</p>
+              <p className="font-semibold mb-2">اختر علامة آخر <span className="font-arabic">الصَّابِر</span>:</p>
               <div className="flex flex-col gap-2">
                 <button onClick={() => setSabirin("una")} className={`p-2 rounded ${sabirin === "una" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>ـُونَ</button>
                 <button onClick={() => setSabirin("ina")} className={`p-2 rounded ${sabirin === "ina" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>ـِينَ</button>

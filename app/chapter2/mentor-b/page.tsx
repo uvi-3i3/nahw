@@ -17,13 +17,13 @@ export default function MentorBPage() {
     if (isTypeCorrect && isSubjectCorrect) {
       setFeedback(
         <>
-          Correct. Verbal sentence. Subject: <span className="font-arabic">الطَّالِبُ</span>. Object: <span className="font-arabic">الدَّرْسَ</span>.
+          Correct. <span className="font-arabic">جملة فعلية</span>. <span className="font-arabic">الفاعل</span>: <span className="font-arabic">الطَّالِبُ</span>. <span className="font-arabic">المفعول به</span>: <span className="font-arabic">الدَّرْسَ</span>.
         </>
       );
     } else {
       setFeedback(
         <>
-          Tip: <GlossaryTerm termKey="fiil">Verb</GlossaryTerm> first. <GlossaryTerm termKey="faail">Subject</GlossaryTerm> is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>. <GlossaryTerm termKey="maful_bihi">Object</GlossaryTerm> is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>.
+          Tip: <GlossaryTerm termKey="fiil"><span className="font-arabic">فعل</span></GlossaryTerm> first. <GlossaryTerm termKey="faail"><span className="font-arabic">فاعل</span></GlossaryTerm> is <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>. <GlossaryTerm termKey="maful_bihi"><span className="font-arabic">مفعول به</span></GlossaryTerm> is <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm>.
         </>
       );
     }
@@ -34,7 +34,7 @@ export default function MentorBPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor B: The Verbal Path</h1>
         <p className="text-lg">
-          Find the sentence type and the subject (<GlossaryTerm termKey="faail">fā‘il</GlossaryTerm>).
+          The mentor gestures to the text: find the sentence type and the subject (<GlossaryTerm termKey="faail"><span className="font-arabic">فاعل</span></GlossaryTerm>).
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
@@ -49,7 +49,9 @@ export default function MentorBPage() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                Verbal sentence: verb first. Subject (فَاعِل) is marfūʿ (ـُ). Object (مفعول به) is manṣūb (ـَ/ـً).
+                <span className="font-arabic">جملة فعلية:</span> <span className="font-arabic">الفعل</span> أولاً. 
+                <span className="font-arabic">الفاعل</span> <span className="font-arabic">مرفوع</span> (ـُ). 
+                <span className="font-arabic">المفعول به</span> <span className="font-arabic">منصوب</span> (ـَ/ـً).
               </div>
             )}
           </div>
@@ -65,19 +67,19 @@ export default function MentorBPage() {
                   onClick={() => setSelectedSentenceType("fiiliyya")}
                   className={`p-2 rounded ${selectedSentenceType === "fiiliyya" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}
                 >
-                  <GlossaryTerm termKey="jumla_fiiliyya">Jumla Fi‘liyya (verbal)</GlossaryTerm>
+                  <GlossaryTerm termKey="jumla_fiiliyya"><span className="font-arabic">جملة فعلية</span></GlossaryTerm>
                 </button>
                 <button
                   onClick={() => setSelectedSentenceType("ismiyyah")}
                   className={`p-2 rounded ${selectedSentenceType === "ismiyyah" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}
                 >
-                  <GlossaryTerm termKey="jumla_ismiyyah">Jumla Ismiyyah (nominal)</GlossaryTerm>
+                  <GlossaryTerm termKey="jumla_ismiyyah"><span className="font-arabic">جملة اسمية</span></GlossaryTerm>
                 </button>
               </div>
             </div>
 
             <div>
-              <p className="font-semibold mb-2">Who is the subject (<GlossaryTerm termKey="faail">fā‘il</GlossaryTerm>)?</p>
+              <p className="font-semibold mb-2">Who is the subject (<GlossaryTerm termKey="faail"><span className="font-arabic">فاعل</span></GlossaryTerm>)?</p>
               <div className="flex flex-col gap-2">
                 <button
                   onClick={() => setSelectedSubject("talib")}

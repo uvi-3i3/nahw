@@ -16,13 +16,13 @@ export default function PathFilPage() {
     if (rootCorrect && formCorrect) {
       setFeedback(
         <>
-          Correct. Root: غ–ف–ر. Form: X (اسْتَفْعَلَ). Meaning: to seek forgiveness.
+          <span className="font-arabic">صحيح.</span> الجذر: غ–ف–ر. الوزن: <span className="font-arabic">اسْتَفْعَلَ</span>. المعنى: طلب المغفرة.
         </>
       );
     } else {
       setFeedback(
         <>
-          Tip: Use pattern <span className="font-arabic">اسْتَفْعَلَ</span>. Remove added letters to find the root.
+          <span className="font-arabic">تلميح:</span> استخدم وزن <span className="font-arabic">اسْتَفْعَلَ</span>. احذف الزوائد لاستخراج الجذر.
         </>
       );
     }
@@ -31,12 +31,12 @@ export default function PathFilPage() {
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
-        <h1 className="text-4xl font-bold">Path of Fi‘l</h1>
-        <p className="text-lg">Roots and forms</p>
+        <h1 className="text-4xl font-bold">Path of Verb</h1>
+        <p className="text-lg"><span className="font-arabic">الجذور والأوزان</span></p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
-          <p className="text-lg mb-2">Analyze the verb:</p>
+          <p className="text-lg mb-2"><span className="font-arabic">حلّل الفعل:</span></p>
           <div className="mb-2">
             <button
               onClick={() => setShowHint((v) => !v)}
@@ -46,7 +46,7 @@ export default function PathFilPage() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                Form X pattern: <span className="font-arabic">اسْتَفْعَلَ</span>. Remove extra letters to find root.
+                <span className="font-arabic">وزن اسْتَفْعَلَ.</span> احذف الزوائد لاستخراج الجذر.
               </div>
             )}
           </div>
@@ -54,7 +54,7 @@ export default function PathFilPage() {
 
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div>
-              <p className="font-semibold mb-2">Select the triliteral root:</p>
+              <p className="font-semibold mb-2"><span className="font-arabic">اختر الجذر الثلاثي:</span></p>
               <div className="flex flex-col gap-2">
                 <button onClick={() => setRoot("ghfr")} className={`p-2 rounded ${root === "ghfr" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>غ ف ر</button>
                 <button onClick={() => setRoot("slm")} className={`p-2 rounded ${root === "slm" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>س ل م</button>
@@ -63,11 +63,11 @@ export default function PathFilPage() {
             </div>
 
             <div>
-              <p className="font-semibold mb-2">Select the derived form (wazn):</p>
+              <p className="font-semibold mb-2"><span className="font-arabic">اختر الوزن:</span></p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setForm("i")} className={`p-2 rounded ${form === "i" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Form I (فَعَلَ)</button>
-                <button onClick={() => setForm("ii")} className={`p-2 rounded ${form === "ii" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Form II (فَعَّلَ)</button>
-                <button onClick={() => setForm("x")} className={`p-2 rounded ${form === "x" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Form X (اسْتَفْعَلَ)</button>
+                <button onClick={() => setForm("i")} className={`p-2 rounded ${form === "i" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">وزن فَعَلَ</span></button>
+                <button onClick={() => setForm("ii")} className={`p-2 rounded ${form === "ii" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">وزن فَعَّلَ</span></button>
+                <button onClick={() => setForm("x")} className={`p-2 rounded ${form === "x" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">وزن اسْتَفْعَلَ</span></button>
               </div>
             </div>
           </div>
