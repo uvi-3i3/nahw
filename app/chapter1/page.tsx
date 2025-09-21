@@ -215,11 +215,18 @@ export default function Chapter1Page() {
           )}
         </div>
 
-        <Link href="/">
-          <button className="rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors">
-            Back to Prologue
-          </button>
-        </Link>
+        <div className="flex gap-4 flex-wrap justify-center">
+          <Link href="/">
+            <button className="rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors">
+              Back to Prologue
+            </button>
+          </Link>
+          <Link href="/chapter2">
+            <button className="rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors">
+              Proceed to Chapter 2
+            </button>
+          </Link>
+        </div>
       </main>
     </div>
   );

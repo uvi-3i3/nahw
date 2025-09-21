@@ -308,11 +308,18 @@ export default function DiagnosticPage() {
               Based on your results, we recommend you start your journey in the
               Scholar's Courtyard.
             </p>
-            <Link href="/chapter1">
-              <button className="mt-4 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors">
-                Proceed to Chapter 1
-              </button>
-            </Link>
+            <div className="mt-4 flex gap-4 flex-wrap justify-center">
+              <Link href="/chapter1">
+                <button className="rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors">
+                  Proceed to Chapter 1
+                </button>
+              </Link>
+              <Link href="/chapter2">
+                <button className="rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors">
+                  Go to Courtyard (Chapter 2)
+                </button>
+              </Link>
+            </div>
           </div>
         )}
       </main>
