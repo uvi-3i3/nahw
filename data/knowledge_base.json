@@ -28,5 +28,50 @@
     "term": "مفعول به (Maf'ūl bihi)",
     "definition": "The direct object of a verb. It is the thing upon which the action of the verb is done. It is always in the accusative case (manṣūb).",
     "example": "In 'رَأَيْتُ رَجُلاً' (I saw a man), 'رَجُلاً' is the maf'ūl bihi."
+  },
+  "fiil": {
+    "term": "فعل (Fi‘l)",
+    "definition": "A verb. In a verbal sentence (جملة فعلية), the verb typically comes first and assigns case to what follows.",
+    "example": "In 'كَتَبَ الطَّالِبُ الدَّرْسَ', 'كَتَبَ' is the verb (fi‘l)."
+  },
+  "faail": {
+    "term": "فاعل (Fā‘il)",
+    "definition": "The doer/subject of the verb in a verbal sentence. It is typically marfūʿ (nominative).",
+    "example": "In 'كَتَبَ الطَّالِبُ الدَّرْسَ', 'الطَّالِبُ' is the fā‘il (subject)."
+  },
+  "huruf_al_jarr": {
+    "term": "حروف الجرّ (Ḥurūf al-Jarr)",
+    "definition": "Prepositions that cause the following noun to become majrūr (genitive). Examples: فِي، لِـ، مِنْ.",
+    "example": "In 'فِي الْبَيْتِ', 'فِي' is a preposition and 'الْبَيْتِ' becomes majrūr."
+  },
+  "inna": {
+    "term": "إنَّ (Inna)",
+    "definition": "A particle that makes the following noun manṣūb (accusative) and the predicate marfūʿ.",
+    "example": "In 'إِنَّ اللَّهَ غَفُورٌ', 'اللَّهَ' is manṣūb because of إنّ."
+  },
+  "jumla_ismiyyah": {
+    "term": "جملة اسمية (Nominal Sentence)",
+    "definition": "A sentence that begins with a noun. The mubtada‘ (subject) and khabar (predicate) are typically marfūʿ.",
+    "example": "'الطالِبُ مُجْتَهِدٌ' is a nominal sentence."
+  },
+  "jumla_fiiliyya": {
+    "term": "جملة فعلية (Verbal Sentence)",
+    "definition": "A sentence that begins with a verb. The subject (fā‘il) is marfū‘ and the object (maf‘ūl bihi) is manṣūb.",
+    "example": "'كَتَبَ الطَّالِبُ الدَّرْسَ' is a verbal sentence."
+  },
+  "marifah": {
+    "term": "معرفة (Ma‘rifah)",
+    "definition": "Definiteness. A definite noun, e.g., with the definite article 'ال', proper names, or by iḍāfa to a definite noun.",
+    "example": "'الطَّالِبُ' is definite due to 'ال'."
+  },
+  "nakira": {
+    "term": "نكرة (Nakirah)",
+    "definition": "Indefiniteness. An indefinite noun, often marked by tanwīn and lacking 'ال'.",
+    "example": "'كِتَابٌ' is indefinite (nakirah)."
+  },
+  "idafa": {
+    "term": "إضافة (Iḍāfa)",
+    "definition": "A construct phrase (genitive construction) linking two nouns; the second is majrūr. If the second is definite, the whole phrase becomes definite.",
+    "example": "'بَيْتُ الطَّالِبِ' is an iḍāfa; the phrase is definite because 'الطَّالِبِ' is definite."
   }
 }
