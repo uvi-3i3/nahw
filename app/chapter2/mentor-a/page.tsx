@@ -29,21 +29,11 @@ export default function MentorAPage() {
 
       if (isSubjectCorrect && isPredicateCorrect) {
         setFeedback(
-          <>
-            Correct! The subject (<GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>) is definite and takes a damma. The predicate (<GlossaryTerm termKey="khabar">khabar</GlossaryTerm>) is a sound masculine plural, so its nominative sign is <span className="font-arabic">ـُونَ</span>.
-          </>
+          <>Correct. Subject: damma. Predicate: ends with <span className="font-arabic">ـُونَ</span>.</>
         );
       } else {
         setFeedback(
-          <>
-            One or both of the endings are incorrect. Remember that both the
-            {" "}
-            <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm> and
-            {" "}
-            <GlossaryTerm termKey="khabar">khabar</GlossaryTerm> are in the
-            {" "}
-            <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm> case.
-          </>
+          <>Try again. Both are <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.</>
         );
       }
     }
@@ -57,13 +47,13 @@ export default function MentorAPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor A: The Nominal Way</h1>
         <p className="text-lg">
-          The mentor, Umm al-Lughah, smiles warmly. "Welcome. Let us explore the simple elegance of the <GlossaryTerm termKey="mubtada">Jumla Ismiyyah</GlossaryTerm> (nominal sentence). Observe the balance between subject and predicate."
+          We practice the nominal sentence (<GlossaryTerm termKey="jumla_ismiyyah">jumla ismiyyah</GlossaryTerm>). Choose the correct endings.
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
-          <p className="text-xl font-semibold mb-4">Exercise:</p>
+          <p className="text-xl font-semibold mb-4">Exercise</p>
           <p className="text-lg mb-4">
-            Identify the correct case endings for the following sentence: <span className="font-arabic">الْقَوْمُ صالِحُونَ</span> (The people are righteous).
+            Choose the correct endings: <span className="font-arabic">الْقَوْمُ صالِحُونَ</span>
           </p>
           
           <div className="grid grid-cols-2 gap-4 mt-4">

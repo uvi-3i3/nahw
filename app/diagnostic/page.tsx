@@ -48,10 +48,8 @@ const questions: {
     rationale: (
       <>
         Correct! The word <span className="font-arabic">أَهْلٌ</span> is the
-        subject (        <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>) of a nominal
-        sentence, so it is in the nominative case (
-        <GlossaryTerm termKey="marfu">marfū'</GlossaryTerm>), which is indicated by
-        the damma.
+        subject (<GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>).
+        It is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm> (damma).
       </>
     ),
   },
@@ -92,11 +90,9 @@ const questions: {
     correctAnswer: "fathatan",
     rationale: (
       <>
-        Excellent! The word <span className="font-arabic">رَجُلاً</span> is the
-        direct object (        <GlossaryTerm termKey="maful_bihi">maf'ūl bihi</GlossaryTerm>) of the verb{" "}
-        <span className="font-arabic">رَأَيْتُ</span>, so it is in the accusative
-        case (<GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>), indicated by
-        fathatan.
+        Correct! The word <span className="font-arabic">رَجُلاً</span> is the
+        object (<GlossaryTerm termKey="maful_bihi">maf'ūl bihi</GlossaryTerm>).
+        It is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> (fathatan).
       </>
     ),
   },
@@ -137,10 +133,9 @@ const questions: {
     correctAnswer: "kasra",
     rationale: (
       <>
-        Well done! The word <span className="font-arabic">الْبَيْتِ</span> is
-        preceded by the preposition <span className="font-arabic">فِي</span>, so it
-        is in the genitive case (        <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>), which is indicated by
-        the kasra.
+        Correct! The word <span className="font-arabic">الْبَيْتِ</span> comes after
+        <span className="font-arabic"> فِي</span>. It is
+        <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm> (kasra).
       </>
     ),
   },
@@ -164,11 +159,8 @@ const questions: {
     correctAnswer: "al-talibu",
     rationale: (
       <>
-        Correct. In a nominal sentence (جملة اسمية), the subject (
-        <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>) typically comes
-        first and is definite, while the predicate (
-        <GlossaryTerm termKey="khabar">khabar</GlossaryTerm>) follows and is often
-        indefinite.
+        Correct. In a nominal sentence, the subject (
+        <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm>) usually comes first.
       </>
     ),
   },
@@ -208,10 +200,8 @@ const questions: {
     correctAnswer: "mansub",
     rationale: (
       <>
-        Exactly! Particles like <span className="font-arabic">'إنَّ'</span> and
-        its sisters (أخوات إن) are نصب particles, meaning they put the noun
-        immediately following them into the accusative (
-        <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>) case.
+        Correct! <span className="font-arabic">'إنَّ'</span> makes the next noun
+        <GlossaryTerm termKey="mansub">manṣūب</GlossaryTerm>.
       </>
     ),
   },
@@ -250,9 +240,7 @@ export default function DiagnosticPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Diagnostic Test</h1>
         <p className="text-lg">
-          This short test will help us understand your current knowledge of Arabic
-          grammar and recommend a starting point for your journey in the City of
-          Language.
+          This short test checks your level. After this, we suggest where to start.
         </p>
 
         {currentQuestionIndex < questions.length ? (

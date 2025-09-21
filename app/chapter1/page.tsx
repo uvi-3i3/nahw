@@ -30,35 +30,27 @@ export default function Chapter1Page() {
       if (isSubjectCorrect && isPredicateCorrect) {
         setFeedback(
           <>
-            Excellent! Both endings are correct. The{" "}
-            <GlossaryTerm termKey="mubtada">mubtada' (subject)</GlossaryTerm> and{" "}
-            <GlossaryTerm termKey="khabar">khabar (predicate)</GlossaryTerm> are
-            both in the{" "}
-            <GlossaryTerm termKey="marfu">marfūʿ (nominative)</GlossaryTerm> case.
+            Correct. Both are <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
           </>
         );
       } else if (isSubjectCorrect) {
         setFeedback(
           <>
-            The subject's ending is correct, but the predicate's is not.
-            Remember, the{" "}
-            <GlossaryTerm termKey="khabar">khabar</GlossaryTerm> is also{" "}
+            Subject is correct. The predicate should be{" "}
             <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
           </>
         );
       } else if (isPredicateCorrect) {
         setFeedback(
           <>
-            The predicate's ending is correct, but the subject's is not.
-            Remember, the{" "}
-            <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm> is{" "}
+            Predicate is correct. The subject should be{" "}
             <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
           </>
         );
       } else {
         setFeedback(
           <>
-            Neither ending is correct. Try again! Both the{" "}
+            Not correct. Both the{" "}
             <GlossaryTerm termKey="mubtada">mubtada'</GlossaryTerm> and{" "}
             <GlossaryTerm termKey="khabar">khabar</GlossaryTerm> should be{" "}
             <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
@@ -76,23 +68,20 @@ export default function Chapter1Page() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Chapter 1: The Paths of Intention</h1>
         <div className="text-lg">
-          Welcome to the first chapter of your journey. Here, you will learn to
-          distinguish between the subject (
+          Learn the nominal sentence. Find the subject (
           <GlossaryTerm termKey="mubtada">
             <span className="font-arabic">مبتدأ</span>
           </GlossaryTerm>
-          ) and predicate (
+          ) and the predicate (
           <GlossaryTerm termKey="khabar">
             <span className="font-arabic">خبر</span>
           </GlossaryTerm>
-          ) in nominal sentences, and understand their correct case markings.
+          ). Both are usually <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
         </div>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise:</p>
-          <p className="text-lg mb-4">
-            Add the correct case endings to the words in the following sentence:
-          </p>
+          <p className="text-lg mb-4">Choose the correct endings:</p>
           <div className="text-3xl font-arabic mb-4" dir="rtl">
             الطالب
             {subjectEnding && (

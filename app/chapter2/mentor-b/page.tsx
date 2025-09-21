@@ -16,13 +16,13 @@ export default function MentorBPage() {
     if (isTypeCorrect && isSubjectCorrect) {
       setFeedback(
         <>
-          Excellent! This is a <GlossaryTerm termKey="jumla_fiiliyya">verbal sentence</GlossaryTerm> beginning with a <GlossaryTerm termKey="fiil">verb</GlossaryTerm>. The subject (<GlossaryTerm termKey="faail">fā‘il</GlossaryTerm>) is <span className="font-arabic">الطَّالِبُ</span> (marfū‘), and the object (<GlossaryTerm termKey="maful_bihi">maf‘ūl bihi</GlossaryTerm>) is <span className="font-arabic">الدَّرْسَ</span> (manṣūb).
+          Correct. Verbal sentence. Subject: <span className="font-arabic">الطَّالِبُ</span>. Object: <span className="font-arabic">الدَّرْسَ</span>.
         </>
       );
     } else {
       setFeedback(
         <>
-          Not quite. Remember: in a <GlossaryTerm termKey="jumla_fiiliyya">جملة فعلية</GlossaryTerm>, the <GlossaryTerm termKey="fiil">verb</GlossaryTerm> comes first, the <GlossaryTerm termKey="faail">fā‘il</GlossaryTerm> is marfū‘, and the <GlossaryTerm termKey="maful_bihi">maf‘ūl bihi</GlossaryTerm> is manṣūb.
+          Tip: <GlossaryTerm termKey="fiil">Verb</GlossaryTerm> first. <GlossaryTerm termKey="faail">Subject</GlossaryTerm> is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>. <GlossaryTerm termKey="maful_bihi">Object</GlossaryTerm> is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>.
         </>
       );
     }
@@ -33,7 +33,7 @@ export default function MentorBPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor B: The Verbal Path</h1>
         <p className="text-lg">
-          The mentor, Shaykh al-Fa‘l, says: "In the <GlossaryTerm termKey="jumla_fiiliyya">verbal sentence</GlossaryTerm>, identify the <GlossaryTerm termKey="faail">doer (fā‘il)</GlossaryTerm> and the <GlossaryTerm termKey="maful_bihi">object (maf‘ūl bihi)</GlossaryTerm>."
+          Find the sentence type and the subject (<GlossaryTerm termKey="faail">fā‘il</GlossaryTerm>).
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">

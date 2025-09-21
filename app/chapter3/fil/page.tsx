@@ -15,15 +15,13 @@ export default function PathFilPage() {
     if (rootCorrect && formCorrect) {
       setFeedback(
         <>
-          Excellent! <span className="font-arabic">اسْتَغْفَرَ</span> comes from the root غ–ف–ر (gh-f-r) and follows
-          Form X (استفعل). In meaning, it often conveys seeking or requesting the action: "to seek forgiveness".
+          Correct. Root: غ–ف–ر. Form: X (اسْتَفْعَلَ). Meaning: to seek forgiveness.
         </>
       );
     } else {
       setFeedback(
         <>
-          Not quite. Consider the pattern <span className="font-arabic">اسْتَفْعَلَ</span> (Form X) and remove the
-          prefixes/suffixes to find the three-letter root.
+          Tip: Use pattern <span className="font-arabic">اسْتَفْعَلَ</span>. Remove added letters to find the root.
         </>
       );
     }
@@ -33,7 +31,7 @@ export default function PathFilPage() {
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Path of Fi‘l</h1>
-        <p className="text-lg">Roots and derived forms</p>
+        <p className="text-lg">Roots and forms</p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>

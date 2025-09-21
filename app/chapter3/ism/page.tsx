@@ -16,16 +16,17 @@ export default function PathIsmPage() {
     if (idafaCorrect && definiteCorrect) {
       setFeedback(
         <>
-          Excellent! This is an <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm> construction:
-          <span className="font-arabic"> بَيْتُ الطَّالِبِ</span>. The second term is majrūr, and since the
-          second term (<span className="font-arabic">الطَّالِبِ</span>) is <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the whole phrase becomes definite.
+          Correct. This is <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>.
+          Second word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>.
+          Because it is <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the whole phrase is definite.
         </>
       );
     } else {
       setFeedback(
         <>
-          Not quite. Recall that in <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>, the second noun is
-          <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm> and if it is <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the entire phrase becomes definite.
+          Tip: In <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>, the second word is
+          <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>. If the second is
+          <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the phrase is definite.
         </>
       );
     }

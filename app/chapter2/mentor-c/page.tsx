@@ -16,20 +16,15 @@ export default function MentorCPage() {
     if (isAllahCorrect && isSabirinCorrect) {
       setFeedback(
         <>
-          Well done! The particle <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> makes the following noun
-          <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>, so <span className="font-arabic">اللَّهَ</span> takes
-          fatḥa. The word <span className="font-arabic">مَعَ</span> acts like a preposition, making what follows it
-          <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>, so <span className="font-arabic">الصَّابِرِينَ</span>
-          ends with <span className="font-arabic">ـِينَ</span>.
+          Correct. After <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>: <span className="font-arabic">اللَّهَ</span> (fatha).
+          After <span className="font-arabic">مَعَ</span>: <span className="font-arabic">الصَّابِرِينَ</span> (ـِينَ).
         </>
       );
     } else {
       setFeedback(
         <>
-          Not quite. Recall: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> governs the following noun to be
-          <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>, and <GlossaryTerm termKey="huruf_al_jarr">حروف
-          الجرّ</GlossaryTerm> (like <span className="font-arabic">مَعَ</span>) cause the noun after to be
-          <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>.
+          Tip: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūب</GlossaryTerm>.
+          <span className="font-arabic">مَعَ</span> → next word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>.
         </>
       );
     }
@@ -40,8 +35,8 @@ export default function MentorCPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor C: Cases in the Quran</h1>
         <p className="text-lg">
-          Al-Murshid explains: "Particles and prepositions affect case. Choose the correct endings for the verse
-          fragment below."
+          Choose the correct endings. <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> makes the next noun manṣūب.
+          <span className="font-arabic"> مَعَ</span> makes the next word majrūr.
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">

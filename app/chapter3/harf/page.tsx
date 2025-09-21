@@ -16,17 +16,14 @@ export default function PathHarfPage() {
     if (khabarCorrect && sahihCorrect) {
       setFeedback(
         <>
-          Great! With <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>, the noun after it becomes
-          <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> → <span className="font-arabic">الْخَبَرَ</span>.
-          The predicate remains <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm> → <span className="font-arabic">صَحِيحٌ</span>.
+          Correct. After <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm>: <span className="font-arabic">الْخَبَرَ</span> (ـَ).
+          Predicate: <span className="font-arabic">صَحِيحٌ</span> (ـٌ).
         </>
       );
     } else {
       setFeedback(
         <>
-          Not quite. <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> makes the following noun
-          <GlossaryTerm termKey="mansub">manṣūبًا</GlossaryTerm>, while its predicate is
-          <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
+          Tip: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>. Predicate is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm>.
         </>
       );
     }
@@ -36,10 +33,10 @@ export default function PathHarfPage() {
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Path of Harf</h1>
-        <p className="text-lg">Particles that govern cases</p>
+        <p className="text-lg">Particles and case</p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
-          <p className="text-xl font-semibold mb-4">Exercise: Apply إنَّ correctly</p>
+          <p className="text-xl font-semibold mb-4">Exercise</p>
           <div className="text-3xl font-arabic mb-4" dir="rtl">
             إِنَّ الْخَبَر
             {khabarEnd === "fatha" ? "َ" : khabarEnd === "damma" ? "ُ" : khabarEnd === "kasra" ? "ِ" : <span className="text-blue-500"> ـ </span>}

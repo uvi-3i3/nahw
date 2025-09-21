@@ -9,11 +9,11 @@ export default function Home() {
           <p className="text-gray-500">Ornate gates with calligraphy...</p>
         </div>
         <p className="text-lg">
-          You stand at the threshold of a city dedicated to the sacred art of Quranic grammar. A dusty road has led you to these ornate gates, where intricate calligraphy adorns the entrance, whispering tales of ancient scholarship.
+          Welcome to a city for learning Quranic grammar (Nahw). Let's start simple.
         </p>
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-          <p className="text-xl font-semibold mb-4">A voice, warm and welcoming, calls out to you.</p>
-          <p className="text-lg">"Welcome, Seeker of knowledge. I am the Gatekeeper. Before you proceed, let us begin with a simple diagnostic to understand your path."</p>
+          <p className="text-xl font-semibold mb-4">Welcome.</p>
+          <p className="text-lg">Before you start, take a short diagnostic test.</p>
         </div>
         <Link href="/diagnostic">
           <button className="rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors">
