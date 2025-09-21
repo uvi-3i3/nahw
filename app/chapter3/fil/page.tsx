@@ -7,6 +7,7 @@ export default function PathFilPage() {
   const [root, setRoot] = useState<string | null>(null);
   const [form, setForm] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const check = () => {
     const rootCorrect = root === "ghfr"; // غ-ف-ر
@@ -36,6 +37,19 @@ export default function PathFilPage() {
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
           <p className="text-lg mb-2">Analyze the verb:</p>
+          <div className="mb-2">
+            <button
+              onClick={() => setShowHint((v) => !v)}
+              className="text-sm underline text-blue-700 dark:text-blue-400"
+            >
+              {showHint ? "Hide hint" : "Show hint"}
+            </button>
+            {showHint && (
+              <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
+                Form X pattern: <span className="font-arabic">اسْتَفْعَلَ</span>. Remove extra letters to find root.
+              </div>
+            )}
+          </div>
           <div className="text-3xl font-arabic mb-4" dir="rtl">اسْتَغْفَرَ</div>
 
           <div className="grid md:grid-cols-2 gap-6 text-left">

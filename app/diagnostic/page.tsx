@@ -201,7 +201,7 @@ const questions: {
     rationale: (
       <>
         Correct! <span className="font-arabic">'إنَّ'</span> makes the next noun
-        <GlossaryTerm termKey="mansub">manṣūب</GlossaryTerm>.
+        <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>.
       </>
     ),
   },

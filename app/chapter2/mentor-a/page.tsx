@@ -8,6 +8,7 @@ export default function MentorAPage() {
   const [subjectEnding, setSubjectEnding] = useState<string | null>(null);
   const [predicateEnding, setPredicateEnding] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const correctSubjectEnding = "damma";
   const correctPredicateEnding = "una"; // Corresponds to the -ūna ending for sound masculine plural
@@ -55,6 +56,20 @@ export default function MentorAPage() {
           <p className="text-lg mb-4">
             Choose the correct endings: <span className="font-arabic">الْقَوْمُ صالِحُونَ</span>
           </p>
+          <div className="mb-2">
+            <button
+              onClick={() => setShowHint((v) => !v)}
+              className="text-sm underline text-blue-700 dark:text-blue-400"
+            >
+              {showHint ? "Hide hint" : "Show hint"}
+            </button>
+            {showHint && (
+              <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
+                Subject <span className="font-arabic">الْقَوْمُ</span> → damma (ـُ). Predicate <span className="font-arabic">صالِحُونَ</span> →
+                sound masculine plural nominative (ـُونَ).
+              </div>
+            )}
+          </div>
           
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div>

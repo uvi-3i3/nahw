@@ -8,6 +8,7 @@ export default function PathIsmPage() {
   const [isIdafa, setIsIdafa] = useState<string | null>(null);
   const [isDefinite, setIsDefinite] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const check = () => {
     const idafaCorrect = isIdafa === "yes";
@@ -40,6 +41,21 @@ export default function PathIsmPage() {
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
+          <div className="mb-2">
+            <button
+              onClick={() => setShowHint((v) => !v)}
+              className="text-sm underline text-blue-700 dark:text-blue-400"
+            >
+              {showHint ? "Hide hint" : "Show hint"}
+            </button>
+            {showHint && (
+              <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
+                In <GlossaryTerm termKey="idafa">iḍāfa</GlossaryTerm>, the second word is
+                <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>. If the second is
+                <GlossaryTerm termKey="marifah">definite</GlossaryTerm>, the whole phrase is definite.
+              </div>
+            )}
+          </div>
           <div className="text-3xl font-arabic mb-4" dir="rtl">
             بَيْتُ الطَّالِبِ
           </div>

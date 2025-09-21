@@ -8,6 +8,7 @@ export default function MentorBPage() {
   const [selectedSentenceType, setSelectedSentenceType] = useState<string | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const handleCheck = () => {
     const isTypeCorrect = selectedSentenceType === "fiiliyya";
@@ -39,6 +40,19 @@ export default function MentorBPage() {
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
           <p className="text-lg mb-2">Consider the sentence:</p>
+          <div className="mb-2">
+            <button
+              onClick={() => setShowHint((v) => !v)}
+              className="text-sm underline text-blue-700 dark:text-blue-400"
+            >
+              {showHint ? "Hide hint" : "Show hint"}
+            </button>
+            {showHint && (
+              <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
+                Verbal sentence: verb first. Subject (فَاعِل) is marfūʿ (ـُ). Object (مفعول به) is manṣūb (ـَ/ـً).
+              </div>
+            )}
+          </div>
           <div className="text-3xl font-arabic mb-4" dir="rtl">
             كَتَبَ الطَّالِبُ الدَّرْسَ
           </div>

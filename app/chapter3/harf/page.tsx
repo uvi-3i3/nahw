@@ -8,6 +8,7 @@ export default function PathHarfPage() {
   const [khabarEnd, setKhabarEnd] = useState<string | null>(null);
   const [sahihEnd, setSahihEnd] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const check = () => {
     const khabarCorrect = khabarEnd === "fatha"; // إنّ تنصب الاسم
@@ -37,6 +38,19 @@ export default function PathHarfPage() {
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
+          <div className="mb-2">
+            <button
+              onClick={() => setShowHint((v) => !v)}
+              className="text-sm underline text-blue-700 dark:text-blue-400"
+            >
+              {showHint ? "Hide hint" : "Show hint"}
+            </button>
+            {showHint && (
+              <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
+                <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> (ـَ/ـً). Predicate is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm> (ـُ/ـٌ).
+              </div>
+            )}
+          </div>
           <div className="text-3xl font-arabic mb-4" dir="rtl">
             إِنَّ الْخَبَر
             {khabarEnd === "fatha" ? "َ" : khabarEnd === "damma" ? "ُ" : khabarEnd === "kasra" ? "ِ" : <span className="text-blue-500"> ـ </span>}

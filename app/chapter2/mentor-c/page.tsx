@@ -8,6 +8,7 @@ export default function MentorCPage() {
   const [allah, setAllah] = useState<string | null>(null);
   const [sabirin, setSabirin] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const check = () => {
     const isAllahCorrect = allah === "fatha"; // إنّ makes الاسم منصوب
@@ -23,7 +24,7 @@ export default function MentorCPage() {
     } else {
       setFeedback(
         <>
-          Tip: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūب</GlossaryTerm>.
+          Tip: <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm>.
           <span className="font-arabic">مَعَ</span> → next word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>.
         </>
       );
@@ -35,13 +36,27 @@ export default function MentorCPage() {
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor C: Cases in the Quran</h1>
         <p className="text-lg">
-          Choose the correct endings. <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> makes the next noun manṣūب.
+          Choose the correct endings. <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> makes the next noun manṣūb.
           <span className="font-arabic"> مَعَ</span> makes the next word majrūr.
         </p>
 
         <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
           <p className="text-lg mb-2">Choose the correct endings:</p>
+          <div className="mb-2">
+            <button
+              onClick={() => setShowHint((v) => !v)}
+              className="text-sm underline text-blue-700 dark:text-blue-400"
+            >
+              {showHint ? "Hide hint" : "Show hint"}
+            </button>
+            {showHint && (
+              <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
+                <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> (ـَ/ـً). 
+                <span className="font-arabic">مَعَ</span> → next word is <GlossaryTerm termKey="majrur">majrūr</GlossaryTerm>. Sound masc. plural gen./acc. → <span className="font-arabic">ـِينَ</span>.
+              </div>
+            )}
+          </div>
           <div className="text-3xl font-arabic mb-4" dir="rtl">
             إِنَّ اللّٰه
             {allah === "damma" ? "ُ" : allah === "fatha" ? "َ" : allah === "kasra" ? "ِ" : <span className="text-blue-500"> ـ </span>}
