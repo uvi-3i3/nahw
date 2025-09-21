@@ -1,0 +1,32 @@
+{
+  "mubtada": {
+    "term": "مبتدأ (Mubtada')",
+    "definition": "The subject of a nominal sentence (جملة اسمية). It is the starting point of the sentence and is typically in the nominative case (marfūʿ).",
+    "example": "In 'الطالِبُ مجتهدٌ', the word 'الطالِبُ' is the mubtada'."
+  },
+  "khabar": {
+    "term": "خبر (Khabar)",
+    "definition": "The predicate of a nominal sentence (جملة اسمية). It provides information about the subject (mubtada') and is also typically in the nominative case (marfūʿ).",
+    "example": "In 'الطالِبُ مجتهدٌ', the word 'مجتهدٌ' is the khabar."
+  },
+  "marfu": {
+    "term": "مرفوع (Marfūʿ)",
+    "definition": "The nominative case. This case is used for the subject of a sentence (both nominal and verbal) and the predicate of a nominal sentence. The default sign for this case is the damma (ـُ) or dammatan (ـٌ).",
+    "example": "A subject (mubtada') is always marfūʿ."
+  },
+  "mansub": {
+    "term": "منصوب (Manṣūb)",
+    "definition": "The accusative case. This case is primarily used for the direct object of a verb (maf'ūl bihi). Certain particles, like 'إنَّ', also cause the following noun to be in this case. The default sign is the fatha (ـَ) or fathatan (ـً).",
+    "example": "The direct object of a verb (maf'ūl bihi) is manṣūb."
+  },
+  "majrur": {
+    "term": "مجرور (Majrūr)",
+    "definition": "The genitive case. This case is used for a noun that is the object of a preposition (e.g., 'فِي', 'لِـ', 'مِنْ') or the second term in a possessive construction (iḍāfa). The default sign is the kasra (ـِ) or kasratan (ـٍ).",
+    "example": "A noun after a preposition like 'فِي' (in) becomes majrūr."
+  },
+  "maful_bihi": {
+    "term": "مفعول به (Maf'ūl bihi)",
+    "definition": "The direct object of a verb. It is the thing upon which the action of the verb is done. It is always in the accusative case (manṣūb).",
+    "example": "In 'رَأَيْتُ رَجُلاً' (I saw a man), 'رَجُلاً' is the maf'ūl bihi."
+  }
+}
