@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useMemo } from "react";
 import GlossaryTerm from "../../components/GlossaryTerm";
 
 export default function MentorCPage() {
@@ -33,6 +33,36 @@ export default function MentorCPage() {
     }
   };
 
+  // Shuffle helper and memoized option arrays to vary positions
+  function shuffle<T>(array: T[]): T[] {
+    const a = array.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const allahOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "damma", label: <span className="font-arabic">ـُ</span> },
+        { value: "fatha", label: <span className="font-arabic">ـَ</span> },
+        { value: "kasra", label: <span className="font-arabic">ـِ</span> },
+      ]),
+    []
+  );
+
+  const sabirinOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "una", label: <span className="font-arabic">ـُونَ</span> },
+        { value: "ina", label: <span className="font-arabic">ـِينَ</span> },
+        { value: "un", label: <span className="font-arabic">ـٌ</span> },
+      ]),
+    []
+  );
+
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
@@ -61,7 +91,7 @@ export default function MentorCPage() {
               </div>
             )}
           </div>
-          <div className="text-3xl font-arabic mb-4" dir="rtl">
+          <div className="text-4xl font-arabic mb-4" dir="rtl">
             إِنَّ اللّٰه
             {allah === "damma" ? "ُ" : allah === "fatha" ? "َ" : allah === "kasra" ? "ِ" : <span className="text-blue-500"> ـ </span>}
             {" "}مَعَ الصَّابِر
@@ -72,18 +102,38 @@ export default function MentorCPage() {
             <div>
               <p className="font-semibold mb-2">اختر علامة آخر <span className="font-arabic">اللّٰه</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setAllah("damma")} className={`p-2 rounded ${allah === "damma" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـُ</span></button>
-                <button onClick={() => setAllah("fatha")} className={`p-2 rounded ${allah === "fatha" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـَ</span></button>
-                <button onClick={() => setAllah("kasra")} className={`p-2 rounded ${allah === "kasra" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـِ</span></button>
+                {allahOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setAllah(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-2xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      allah === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             <div>
               <p className="font-semibold mb-2">اختر علامة آخر <span className="font-arabic">الصَّابِر</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setSabirin("una")} className={`p-2 rounded ${sabirin === "una" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>ـُونَ</button>
-                <button onClick={() => setSabirin("ina")} className={`p-2 rounded ${sabirin === "ina" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>ـِينَ</button>
-                <button onClick={() => setSabirin("un")} className={`p-2 rounded ${sabirin === "un" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>ـٌ</button>
+                {sabirinOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSabirin(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-2xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      sabirin === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

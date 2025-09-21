@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useMemo } from "react";
 import GlossaryTerm from "../../components/GlossaryTerm";
 
 export default function PathHarfPage() {
@@ -31,6 +31,36 @@ export default function PathHarfPage() {
     }
   };
 
+  // Shuffle helper and memoized option arrays for varying positions
+  function shuffle<T>(array: T[]): T[] {
+    const a = array.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const khabarOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "fatha", label: <span className="font-arabic">ـَ</span> },
+        { value: "damma", label: <span className="font-arabic">ـُ</span> },
+        { value: "kasra", label: <span className="font-arabic">ـِ</span> },
+      ]),
+    []
+  );
+
+  const sahihOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "dammatan", label: <span className="font-arabic">ـٌ</span> },
+        { value: "fathatan", label: <span className="font-arabic">ـً</span> },
+        { value: "kasratan", label: <span className="font-arabic">ـٍ</span> },
+      ]),
+    []
+  );
+
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
@@ -48,11 +78,13 @@ export default function PathHarfPage() {
             </button>
             {showHint && (
               <div className="mt-2 text-left text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded">
-                <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> → next noun is <GlossaryTerm termKey="mansub">manṣūb</GlossaryTerm> (ـَ/ـً). Predicate is <GlossaryTerm termKey="marfu">marfūʿ</GlossaryTerm> (ـُ/ـٌ).
+                <GlossaryTerm termKey="inna">إنَّ</GlossaryTerm> ← الاسم التالي 
+                <GlossaryTerm termKey="mansub"><span className="font-arabic">منصوب</span></GlossaryTerm> (ـَ/ـً). والخبر 
+                <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm> (ـُ/ـٌ).
               </div>
             )}
           </div>
-          <div className="text-3xl font-arabic mb-4" dir="rtl">
+          <div className="text-4xl font-arabic mb-4" dir="rtl">
             إِنَّ الْخَبَر
             {khabarEnd === "fatha" ? "َ" : khabarEnd === "damma" ? "ُ" : khabarEnd === "kasra" ? "ِ" : <span className="text-blue-500"> ـ </span>}
             {" "}صَحِيح
@@ -63,18 +95,38 @@ export default function PathHarfPage() {
             <div>
               <p className="font-semibold mb-2">علامة آخر <span className="font-arabic">الْخَبَر</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setKhabarEnd("fatha")} className={`p-2 rounded ${khabarEnd === "fatha" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـَ</span></button>
-                <button onClick={() => setKhabarEnd("damma")} className={`p-2 rounded ${khabarEnd === "damma" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـُ</span></button>
-                <button onClick={() => setKhabarEnd("kasra")} className={`p-2 rounded ${khabarEnd === "kasra" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـِ</span></button>
+                {khabarOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setKhabarEnd(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-2xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      khabarEnd === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             <div>
               <p className="font-semibold mb-2">علامة آخر <span className="font-arabic">صَحِيح</span>:</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setSahihEnd("dammatan")} className={`p-2 rounded ${sahihEnd === "dammatan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـٌ</span></button>
-                <button onClick={() => setSahihEnd("fathatan")} className={`p-2 rounded ${sahihEnd === "fathatan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـً</span></button>
-                <button onClick={() => setSahihEnd("kasratan")} className={`p-2 rounded ${sahihEnd === "kasratan" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">ـٍ</span></button>
+                {sahihOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSahihEnd(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-2xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      sahihEnd === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

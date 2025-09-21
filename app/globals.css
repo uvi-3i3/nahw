@@ -28,4 +28,5 @@ body {
 
 .font-arabic {
   font-family: var(--font-arabic);
+  font-weight: 700;
 }

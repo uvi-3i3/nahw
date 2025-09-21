@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useMemo } from "react";
 import Link from "next/link";
 import GlossaryTerm from "../components/GlossaryTerm";
 
@@ -233,7 +233,21 @@ export default function DiagnosticPage() {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
+  // Fisher–Yates shuffle to randomize option order per question
+  function shuffle<T>(array: T[]): T[] {
+    const a = array.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   const currentQuestion = questions[currentQuestionIndex];
+  const shuffledOptions = useMemo(
+    () => (currentQuestion ? shuffle(currentQuestion.options) : []),
+    [currentQuestionIndex]
+  );
 
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
@@ -250,18 +264,18 @@ export default function DiagnosticPage() {
             </p>
             <div className="text-lg mb-4">{currentQuestion.question}</div>
             <div className="flex flex-col gap-4">
-              {currentQuestion.options.map((option) => (
+              {shuffledOptions.map((option) => (
                 <button
                   key={option.value}
                   onClick={() => handleAnswerSelection(option.value)}
-                  className={`p-4 rounded-lg text-left transition-colors ${
+                  className={`p-4 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors ${
                     selectedAnswer === option.value
                       ? option.value === currentQuestion.correctAnswer
                         ? "bg-green-500 text-white"
                         : "bg-red-500 text-white"
                       : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
-                  disabled={selectedAnswer !== null}
+                  disabled={showNext}
                 >
                   {option.text}
                 </button>

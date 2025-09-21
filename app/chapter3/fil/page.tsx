@@ -1,13 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useMemo } from "react";
 
 export default function PathFilPage() {
   const [root, setRoot] = useState<string | null>(null);
   const [form, setForm] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
   const [showHint, setShowHint] = useState(false);
+
+  // Shuffle helper and memoized options to vary positions
+  function shuffle<T>(array: T[]): T[] {
+    const a = array.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const rootOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "ghfr", label: <span className="font-arabic">غ ف ر</span> },
+        { value: "slm", label: <span className="font-arabic">س ل م</span> },
+        { value: "ktb", label: <span className="font-arabic">ك ت ب</span> },
+      ]),
+    []
+  );
+
+  const formOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "i", label: <span className="font-arabic">وزن فَعَلَ</span> },
+        { value: "ii", label: <span className="font-arabic">وزن فَعَّلَ</span> },
+        { value: "x", label: <span className="font-arabic">وزن اسْتَفْعَلَ</span> },
+      ]),
+    []
+  );
 
   const check = () => {
     const rootCorrect = root === "ghfr"; // غ-ف-ر
@@ -50,24 +80,44 @@ export default function PathFilPage() {
               </div>
             )}
           </div>
-          <div className="text-3xl font-arabic mb-4" dir="rtl">اسْتَغْفَرَ</div>
+          <div className="text-4xl font-arabic mb-4" dir="rtl">اسْتَغْفَرَ</div>
 
           <div className="grid md:grid-cols-2 gap-6 text-left">
             <div>
               <p className="font-semibold mb-2"><span className="font-arabic">اختر الجذر الثلاثي:</span></p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setRoot("ghfr")} className={`p-2 rounded ${root === "ghfr" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>غ ف ر</button>
-                <button onClick={() => setRoot("slm")} className={`p-2 rounded ${root === "slm" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>س ل م</button>
-                <button onClick={() => setRoot("ktb")} className={`p-2 rounded ${root === "ktb" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>ك ت ب</button>
+                {rootOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setRoot(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-2xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      root === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             <div>
               <p className="font-semibold mb-2"><span className="font-arabic">اختر الوزن:</span></p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setForm("i")} className={`p-2 rounded ${form === "i" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">وزن فَعَلَ</span></button>
-                <button onClick={() => setForm("ii")} className={`p-2 rounded ${form === "ii" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">وزن فَعَّلَ</span></button>
-                <button onClick={() => setForm("x")} className={`p-2 rounded ${form === "x" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}><span className="font-arabic">وزن اسْتَفْعَلَ</span></button>
+                {formOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setForm(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-2xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      form === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

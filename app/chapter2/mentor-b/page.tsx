@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useMemo } from "react";
 import GlossaryTerm from "../../components/GlossaryTerm";
 
 export default function MentorBPage() {
@@ -28,6 +28,48 @@ export default function MentorBPage() {
       );
     }
   };
+
+  // Shuffle helper and memoized option arrays for varying positions
+  function shuffle<T>(array: T[]): T[] {
+    const a = array.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const typeOptions = useMemo(
+    () =>
+      shuffle([
+        {
+          value: "fiiliyya",
+          label: (
+            <GlossaryTerm termKey="jumla_fiiliyya">
+              <span className="font-arabic">جملة فعلية</span>
+            </GlossaryTerm>
+          ),
+        },
+        {
+          value: "ismiyyah",
+          label: (
+            <GlossaryTerm termKey="jumla_ismiyyah">
+              <span className="font-arabic">جملة اسمية</span>
+            </GlossaryTerm>
+          ),
+        },
+      ]),
+    []
+  );
+
+  const subjectOptions = useMemo(
+    () =>
+      shuffle([
+        { value: "talib", label: <span className="font-arabic">الطَّالِبُ</span> },
+        { value: "dars", label: <span className="font-arabic">الدَّرْسَ</span> },
+      ]),
+    []
+  );
 
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
@@ -63,36 +105,38 @@ export default function MentorBPage() {
             <div>
               <p className="font-semibold mb-2">What type of sentence is this?</p>
               <div className="flex flex-col gap-2">
-                <button
-                  onClick={() => setSelectedSentenceType("fiiliyya")}
-                  className={`p-2 rounded ${selectedSentenceType === "fiiliyya" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}
-                >
-                  <GlossaryTerm termKey="jumla_fiiliyya"><span className="font-arabic">جملة فعلية</span></GlossaryTerm>
-                </button>
-                <button
-                  onClick={() => setSelectedSentenceType("ismiyyah")}
-                  className={`p-2 rounded ${selectedSentenceType === "ismiyyah" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}
-                >
-                  <GlossaryTerm termKey="jumla_ismiyyah"><span className="font-arabic">جملة اسمية</span></GlossaryTerm>
-                </button>
+                {typeOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSelectedSentenceType(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      selectedSentenceType === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             <div>
               <p className="font-semibold mb-2">Who is the subject (<GlossaryTerm termKey="faail"><span className="font-arabic">فاعل</span></GlossaryTerm>)?</p>
               <div className="flex flex-col gap-2">
-                <button
-                  onClick={() => setSelectedSubject("talib")}
-                  className={`p-2 rounded ${selectedSubject === "talib" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}
-                >
-                  <span className="font-arabic">الطَّالِبُ</span>
-                </button>
-                <button
-                  onClick={() => setSelectedSubject("dars")}
-                  className={`p-2 rounded ${selectedSubject === "dars" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}
-                >
-                  <span className="font-arabic">الدَّرْسَ</span>
-                </button>
+                {subjectOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setSelectedSubject(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      selectedSubject === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>

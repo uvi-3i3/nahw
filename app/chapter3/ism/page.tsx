@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, ReactNode } from "react";
+import { useState, ReactNode, useMemo } from "react";
 import GlossaryTerm from "../../components/GlossaryTerm";
 
 export default function PathIsmPage() {
@@ -33,6 +33,32 @@ export default function PathIsmPage() {
     }
   };
 
+  // Shuffle helper and memoized options to vary answer positions
+  function shuffle<T>(array: T[]): T[] {
+    const a = array.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  const idafaOptions = useMemo(
+    () => shuffle([
+      { value: "yes", label: "Yes" },
+      { value: "no", label: "No" },
+    ]),
+    []
+  );
+
+  const definiteOptions = useMemo(
+    () => shuffle([
+      { value: "yes", label: "Yes" },
+      { value: "no", label: "No" },
+    ]),
+    []
+  );
+
   return (
     <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
       <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
@@ -56,7 +82,7 @@ export default function PathIsmPage() {
               </div>
             )}
           </div>
-          <div className="text-3xl font-arabic mb-4" dir="rtl">
+          <div className="text-4xl font-arabic mb-4" dir="rtl">
             بَيْتُ الطَّالِبِ
           </div>
 
@@ -64,16 +90,38 @@ export default function PathIsmPage() {
             <div>
               <p className="font-semibold mb-2">Is this an <GlossaryTerm termKey="idafa"><span className="font-arabic">إضافة</span></GlossaryTerm>?</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setIsIdafa("yes")} className={`p-2 rounded ${isIdafa === "yes" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Yes</button>
-                <button onClick={() => setIsIdafa("no")} className={`p-2 rounded ${isIdafa === "no" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>No</button>
+                {idafaOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setIsIdafa(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      isIdafa === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             <div>
               <p className="font-semibold mb-2">Is the whole phrase <GlossaryTerm termKey="marifah"><span className="font-arabic">معرفة</span></GlossaryTerm>?</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setIsDefinite("yes")} className={`p-2 rounded ${isDefinite === "yes" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>Yes</button>
-                <button onClick={() => setIsDefinite("no")} className={`p-2 rounded ${isDefinite === "no" ? "bg-blue-600 text-white" : "bg-gray-300 dark:bg-gray-700"}`}>No</button>
+                {definiteOptions.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setIsDefinite(opt.value)}
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                      isDefinite === opt.value
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
