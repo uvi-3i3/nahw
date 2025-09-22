@@ -65,8 +65,8 @@ export default function Chapter1Page() {
   const isPredicateCorrect = predicateEnding === correctPredicateEnding;
 
   return (
-    <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
-      <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
+    <div className="font-sans text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+      <main className="flex flex-col gap-8 items-center text-center w-full max-w-xl sm:max-w-2xl">
         <h1 className="text-4xl font-bold">Chapter 1: The Paths of Intention</h1>
         <div className="text-lg">
           Learn the nominal sentence. Find the subject (
@@ -80,7 +80,7 @@ export default function Chapter1Page() {
           ). Both are usually <GlossaryTerm termKey="marfu"><span className="font-arabic">مرفوع</span></GlossaryTerm>.
         </div>
 
-        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
+        <div className="themed-card p-6 md:p-8 w-full">
           <p className="text-xl font-semibold mb-4">Exercise:</p>
           <p className="text-lg mb-4">Choose the correct endings:</p>
           <div className="mb-2">
@@ -127,36 +127,36 @@ export default function Chapter1Page() {
               <div className="flex flex-col gap-2 mt-2">
                 <button
                   onClick={() => handleSubjectSelection("damma")}
-                  className={`p-2 rounded ${
+                  className={`p-3 rounded-lg text-lg shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     subjectEnding === "damma"
                       ? isSubjectCorrect
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                      : "bg-gray-300 dark:bg-gray-700"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
+                      : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                 >
                   Damma (ـُ)
                 </button>
                 <button
                   onClick={() => handleSubjectSelection("fatha")}
-                  className={`p-2 rounded ${
+                  className={`p-3 rounded-lg text-lg shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     subjectEnding === "fatha"
                       ? isSubjectCorrect
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                      : "bg-gray-300 dark:bg-gray-700"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
+                      : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                 >
                   Fatha (ـَ)
                 </button>
                 <button
                   onClick={() => handleSubjectSelection("kasra")}
-                  className={`p-2 rounded ${
+                  className={`p-3 rounded-lg text-lg shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     subjectEnding === "kasra"
                       ? isSubjectCorrect
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                      : "bg-gray-300 dark:bg-gray-700"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
+                      : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                 >
                   Kasra (ـِ)
@@ -168,36 +168,36 @@ export default function Chapter1Page() {
               <div className="flex flex-col gap-2 mt-2">
                 <button
                   onClick={() => handlePredicateSelection("dammatan")}
-                  className={`p-2 rounded ${
+                  className={`p-3 rounded-lg text-lg shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     predicateEnding === "dammatan"
                       ? isPredicateCorrect
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                      : "bg-gray-300 dark:bg-gray-700"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
+                      : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                 >
                   Dammatan (ـٌ)
                 </button>
                 <button
                   onClick={() => handlePredicateSelection("fathatan")}
-                  className={`p-2 rounded ${
+                  className={`p-3 rounded-lg text-lg shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     predicateEnding === "fathatan"
                       ? isPredicateCorrect
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                      : "bg-gray-300 dark:bg-gray-700"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
+                      : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                 >
                   Fathatan (ـً)
                 </button>
                 <button
                   onClick={() => handlePredicateSelection("kasratan")}
-                  className={`p-2 rounded ${
+                  className={`p-3 rounded-lg text-lg shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     predicateEnding === "kasratan"
                       ? isPredicateCorrect
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
-                      : "bg-gray-300 dark:bg-gray-700"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
+                      : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                 >
                   Kasratan (ـٍ)
@@ -210,9 +210,9 @@ export default function Chapter1Page() {
             <div
               className={`mt-4 p-4 rounded-lg ${
                 isSubjectCorrect && isPredicateCorrect
-                  ? "bg-green-100 dark:bg-green-900 text-green-900 dark:text-green-100"
-                  : "bg-red-100 dark:bg-red-900 text-red-900 dark:text-red-100"
-              }`}
+                  ? "bg-green-100 dark:bg-green-900 text-green-900 dark:text-green-100 animate-correct"
+                  : "bg-red-100 dark:bg-red-900 text-red-900 dark:text-red-100 animate-wrong"
+              } fade-in-up`}
             >
               <div>{feedback}</div>
             </div>
@@ -221,12 +221,12 @@ export default function Chapter1Page() {
 
         <div className="flex gap-4 flex-wrap justify-center">
           <Link href="/">
-            <button className="rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors">
+            <button className="rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]">
               Back to Prologue
             </button>
           </Link>
           <Link href="/chapter2">
-            <button className="rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors">
+            <button className="rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]">
               Proceed to Chapter 2
             </button>
           </Link>

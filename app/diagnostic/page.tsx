@@ -250,15 +250,15 @@ export default function DiagnosticPage() {
   );
 
   return (
-    <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
-      <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
+    <div className="font-sans text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+      <main className="flex flex-col gap-8 items-center text-center w-full max-w-xl sm:max-w-2xl">
         <h1 className="text-4xl font-bold">Diagnostic Test</h1>
         <p className="text-lg">
           This short test checks your level. After this, we suggest where to start.
         </p>
 
         {currentQuestionIndex < questions.length ? (
-          <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
+          <div className="themed-card p-6 md:p-8 w-full">
             <p className="text-xl font-semibold mb-4">
               Question {currentQuestionIndex + 1}:
             </p>
@@ -268,11 +268,11 @@ export default function DiagnosticPage() {
                 <button
                   key={option.value}
                   onClick={() => handleAnswerSelection(option.value)}
-                  className={`p-4 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors ${
+                  className={`p-4 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                     selectedAnswer === option.value
                       ? option.value === currentQuestion.correctAnswer
-                        ? "bg-green-500 text-white"
-                        : "bg-red-500 text-white"
+                        ? "bg-green-500 text-white animate-correct"
+                        : "bg-red-500 text-white animate-wrong"
                       : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
                   }`}
                   disabled={showNext}
@@ -287,7 +287,7 @@ export default function DiagnosticPage() {
                   selectedAnswer === currentQuestion.correctAnswer
                     ? "bg-green-100 dark:bg-green-900 text-green-900 dark:text-green-100"
                     : "bg-red-100 dark:bg-red-900 text-red-900 dark:text-red-100"
-                }`}
+                } fade-in-up`}
               >
                 <div>{feedback}</div>
               </div>
@@ -295,14 +295,14 @@ export default function DiagnosticPage() {
             {showNext && (
               <button
                 onClick={handleNextQuestion}
-                className="mt-4 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors"
+                className="mt-4 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]"
               >
                 Next Question
               </button>
             )}
           </div>
         ) : (
-          <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
+          <div className="themed-card p-6 md:p-8 w-full">
             <p className="text-xl font-semibold">
               You have completed the diagnostic test!
             </p>
@@ -312,12 +312,12 @@ export default function DiagnosticPage() {
             </p>
             <div className="mt-4 flex gap-4 flex-wrap justify-center">
               <Link href="/chapter1">
-                <button className="rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors">
+                <button className="rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]">
                   Proceed to Chapter 1
                 </button>
               </Link>
               <Link href="/chapter2">
-                <button className="rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors">
+                <button className="rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]">
                   Go to Courtyard (Chapter 2)
                 </button>
               </Link>

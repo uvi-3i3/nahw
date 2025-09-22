@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Theme accents */
+  --sand: #f6efe3;
+  --ink: #1b1a17;
+  --lapis: #1f4e79;
+  --date: #7c4a21;
+  --mint: #3a7d7c;
+  --accent: #b08968;
+  --card-light: #f2f1ee;
+  --card-dark: #1f2937;
 }
 
 @theme inline {
@@ -17,6 +26,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --card-dark: #111827;
   }
 }
 
@@ -29,4 +39,100 @@ body {
 .font-arabic {
   font-family: var(--font-arabic);
   font-weight: 700;
+}
+
+/* Thematic background: subtle geometric dots for an Arabic manuscript feel */
+.theme-medina {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 25px 25px, rgba(0, 0, 0, 0.04) 1.2px, transparent 1.2px),
+    radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px;
+  background-position: 0 0, 25px 25px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-medina {
+    background-image:
+      radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 1.2px, transparent 1.2px),
+      radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+}
+
+/* Reusable card with a gentle border and soft paper-like background */
+.themed-card {
+  background: color-mix(in oklab, var(--background) 92%, var(--sand));
+  border: 1px solid color-mix(in oklab, var(--foreground), transparent 80%);
+  border-radius: 0.75rem; /* rounded-lg */
+  box-shadow: 0 10px 20px -12px rgba(31, 78, 121, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  .themed-card {
+    background: color-mix(in oklab, var(--background) 96%, var(--ink));
+    box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Animated feedback utilities */
+@keyframes correctPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.15); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-correct { animation: correctPulse 300ms ease-in-out; }
+.animate-wrong { animation: wrongShake 320ms ease-in-out; }
+.fade-in-up { animation: fadeInUp 220ms ease-out both; }
+
+/* Modal subtle entrance */
+@keyframes popIn {
+  0% { opacity: 0; transform: translateY(6px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-overlay { animation: fadeInUp 150ms ease-out; }
+.modal-content { animation: popIn 180ms ease-out; }
+
+/* Heading accent: subtle underline bar centered under titles */
+.heading-accent {
+  position: relative;
+  padding-bottom: 0.25rem;
+  background-image: linear-gradient(90deg, color-mix(in oklab, var(--lapis), white 10%), color-mix(in oklab, var(--mint), white 10%));
+  background-repeat: no-repeat;
+  background-size: 140px 3px;
+  background-position: 50% 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .heading-accent {
+    background-image: linear-gradient(90deg, color-mix(in oklab, var(--lapis), white 25%), color-mix(in oklab, var(--mint), white 25%));
+  }
+}
+
+/* Story strip: concise narrative callout */
+.story-strip {
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  border-left: 4px solid color-mix(in oklab, var(--lapis), white 30%);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .story-strip {
+    background: color-mix(in oklab, var(--foreground) 7%, transparent);
+    border-left-color: color-mix(in oklab, var(--mint), white 35%);
+  }
 }

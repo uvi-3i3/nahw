@@ -10,6 +10,18 @@ export default function MentorBPage() {
   const [feedback, setFeedback] = useState<ReactNode | null>(null);
   const [showHint, setShowHint] = useState(false);
 
+  const markMentorComplete = () => {
+    try {
+      localStorage.setItem('ch2_mentor_b_complete', 'true');
+      const a = localStorage.getItem('ch2_mentor_a_complete') === 'true';
+      const b = localStorage.getItem('ch2_mentor_b_complete') === 'true';
+      const c = localStorage.getItem('ch2_mentor_c_complete') === 'true';
+      if (a && b && c) {
+        localStorage.setItem('ch2Complete', 'true');
+      }
+    } catch (_) {}
+  };
+
   const handleCheck = () => {
     const isTypeCorrect = selectedSentenceType === "fiiliyya";
     const isSubjectCorrect = selectedSubject === "talib";
@@ -20,6 +32,7 @@ export default function MentorBPage() {
           Correct. <span className="font-arabic">جملة فعلية</span>. <span className="font-arabic">الفاعل</span>: <span className="font-arabic">الطَّالِبُ</span>. <span className="font-arabic">المفعول به</span>: <span className="font-arabic">الدَّرْسَ</span>.
         </>
       );
+      markMentorComplete();
     } else {
       setFeedback(
         <>
@@ -71,15 +84,17 @@ export default function MentorBPage() {
     []
   );
 
+  const isCorrect = selectedSentenceType === "fiiliyya" && selectedSubject === "talib";
+
   return (
-    <div className="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-8">
-      <main className="flex flex-col gap-8 items-center text-center max-w-2xl">
+    <div className="font-sans text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+      <main className="flex flex-col gap-8 items-center text-center w-full max-w-xl sm:max-w-2xl">
         <h1 className="text-4xl font-bold">Mentor B: The Verbal Path</h1>
         <p className="text-lg">
           The mentor gestures to the text: find the sentence type and the subject (<GlossaryTerm termKey="faail"><span className="font-arabic">فاعل</span></GlossaryTerm>).
         </p>
 
-        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full">
+        <div className="themed-card p-6 md:p-8 w-full">
           <p className="text-xl font-semibold mb-4">Exercise</p>
           <p className="text-lg mb-2">Consider the sentence:</p>
           <div className="mb-2">
@@ -109,7 +124,7 @@ export default function MentorBPage() {
                   <button
                     key={opt.value}
                     onClick={() => setSelectedSentenceType(opt.value)}
-                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                       selectedSentenceType === opt.value
                         ? "bg-blue-600 text-white"
                         : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
@@ -128,7 +143,7 @@ export default function MentorBPage() {
                   <button
                     key={opt.value}
                     onClick={() => setSelectedSubject(opt.value)}
-                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 ${
+                    className={`p-3 rounded-lg flex items-center justify-center text-center text-xl shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ring-offset-2 dark:ring-offset-gray-800 transition-colors transition-transform active:scale-[0.98] ${
                       selectedSubject === opt.value
                         ? "bg-blue-600 text-white"
                         : "bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600"
@@ -143,14 +158,14 @@ export default function MentorBPage() {
 
           <button
             onClick={handleCheck}
-            className="mt-6 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors"
+            className="mt-6 rounded-full bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]"
             disabled={!selectedSentenceType || !selectedSubject}
           >
             Check Answer
           </button>
 
           {feedback && (
-            <div className="mt-4 p-4 rounded-lg bg-gray-100 dark:bg-gray-900 text-left">
+            <div className={`mt-4 p-4 rounded-lg ${isCorrect ? 'bg-green-100 dark:bg-green-900 text-green-900 dark:text-green-100 animate-correct' : 'bg-red-100 dark:bg-red-900 text-red-900 dark:text-red-100 animate-wrong'} fade-in-up text-left`}>
               {feedback}
             </div>
           )}
@@ -158,12 +173,12 @@ export default function MentorBPage() {
 
         <div className="flex gap-4">
           <Link href="/chapter2">
-            <button className="mt-4 rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors">
+            <button className="mt-4 rounded-full bg-gray-500 text-white hover:bg-gray-600 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]">
               Back to Courtyard
             </button>
           </Link>
           <Link href="/chapter3">
-            <button className="mt-4 rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors">
+            <button className="mt-4 rounded-full bg-green-600 text-white hover:bg-green-700 font-bold text-lg py-3 px-8 transition-colors shadow-sm active:scale-[0.98]">
               Proceed to Chapter 3
             </button>
           </Link>

@@ -30,12 +30,12 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
   return createPortal(
     (
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
+        className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center modal-overlay"
         onClick={handleOverlayClick}
         role="presentation"
       >
         <div
-          className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full"
+          className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-sm w-full modal-content themed-card"
           role="dialog"
           aria-modal="true"
           aria-label="Glossary details"
